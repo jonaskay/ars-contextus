@@ -1,5 +1,6 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
 
 import "../styles/global.css";
 import FormattedDate from "../components/formatted-date.astro";
@@ -19,7 +20,7 @@ const posts = (await getCollection('blog')).sort(
 		<title>Ars Contextus</title>
 	</head>
 	<body>
-		<nav class="relative bg-neutral-600 text-white uppercase tracking-wide">
+		<nav class="relative bg-neutral-800 text-white uppercase tracking-wide">
 			<ul class="container mx-auto px-8 py-2 flex items-center justify-between gap-4">
 				<li>
 					<a href="/">Home</a>
@@ -53,7 +54,11 @@ const posts = (await getCollection('blog')).sort(
 						posts.map((post) => (
 							<li class="h-full">
 								<a href={`/blog/${post.id}/`} class="flex h-full overflow-hidden border border-neutral-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition duration-150">
-									<div class="flex-none w-1/5 bg-neutral-600"></div>
+									<div class="flex-none w-1/5 overflow-hidden bg-neutral-600">
+										{post.data.image && (
+											<Image src={post.data.image} alt="" class="w-full h-full object-center object-cover scale-200" />
+										)}
+									</div>
 									<div class="flex flex-col justify-between">
 										<div class="p-4">
 											<h4 class="text-2xl font-bold">{post.data.title}</h4>

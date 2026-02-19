@@ -1,6 +1,7 @@
 ---
 title: "Agentic Workflows for Everyday Engineering"
 description: "A practical tour of how coding agents can plan, execute, and verify small-to-medium engineering tasks."
+image: "../../assets/agentic-workflows.png"
 publishedDate: "2026-01-31"
 updatedDate: "2026-01-31"
 ---
@@ -13,4 +14,3 @@ This placeholder post will cover the core loop of agentic work: understand inten
 - Task decomposition and safety checks
 - Keeping changes small and reviewable
 - Measuring impact with lightweight verification
-

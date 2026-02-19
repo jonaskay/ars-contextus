@@ -1,6 +1,7 @@
 ---
 title: "Pairing with a Coding Agent: A Playbook"
 description: "Placeholder strategies for delegating tasks to an agent while keeping context and intent clear."
+image: "../../assets/agent-pairing-playbook.png"
 publishedDate: "2026-01-31"
 updatedDate: "2026-01-31"
 ---
@@ -13,4 +14,3 @@ This placeholder post will focus on day-to-day collaboration techniques, from dr
 - Providing context without oversharing
 - Iterating on diffs and follow-ups
 - When to stop and hand off
-
