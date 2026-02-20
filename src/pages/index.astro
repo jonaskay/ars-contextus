@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 
-import "../styles/global.css";
+import BaseLayout from "../layouts/base-layout.astro";
 import FormattedDate from "../components/formatted-date.astro";
 
 const posts = (await getCollection('blog')).sort(
@@ -10,70 +10,48 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Ars Contextus</title>
-	</head>
-	<body>
-		<nav class="relative bg-slate-900 text-white">
-			<ul class="container mx-auto px-8 py-2 flex items-center justify-between gap-4">
-				<li>
-					<a href="/" class="font-medium">Ars Contextus</a>
-				</li>
-			</ul>
-		</nav>
-		<div class="relative">
-			<div class="absolute inset-0 opacity-50"></div>
-			<header class="relative">
-				<div class="absolute inset-0 bg-linear-to-r from-violet-200 via-blue-100 to-violet-200"></div>
-				<div class="relative container mx-auto px-8 pt-24 pb-16">
-					<div class="w-1/2 mx-auto text-center">
-						<h1 class="text-blue-950 text-7xl font-bold">Ars Contextus</h1>
-						<p class="mt-8 text-2xl text-blue-950">Agents are changing the way we build software. But no one knows exactly how. These are some writings on the matter.</p>
-					</div>
+<BaseLayout title="Ars Contextus">
+	<div class="relative">
+		<div class="absolute inset-0 opacity-50"></div>
+		<header class="relative">
+			<div class="absolute inset-0 bg-linear-to-r from-violet-200 via-blue-100 to-violet-200"></div>
+			<div class="relative container mx-auto px-8 pt-24 pb-16">
+				<div class="w-1/2 mx-auto text-center">
+					<h1 class="text-blue-950 text-7xl font-bold">Ars Contextus</h1>
+					<p class="mt-8 text-2xl text-blue-950">Blog about software engineering with LLMs</p>
 				</div>
-			</header>
-		</div>
-		<main class="bg-linear-to-b">
-			<div class="container mx-auto px-8 py-16">
-				<h2 class="mb-12 text-blue-950 text-3xl font-bold">Recent posts</h2>
-				<section>
-					<ul class="grid grid-cols-3 gap-8">
-						{
-							posts.map((post) => (
-								<li class="h-full">
-									<a href={`/blog/${post.id}/`} class="flex h-full overflow-hidden border border-slate-200 shadow-sm rounded-lg hover:shadow-md bg-white hover:-translate-y-0.5 transition duration-150">
-										<div class="flex-none w-1/5 overflow-hidden bg-slate-600">
-											{post.data.image && (
-												<Image src={post.data.image} alt="" class="w-full h-full object-center object-cover scale-200" />
-											)}
-										</div>
-										<div class="flex flex-col justify-between">
-											<div class="p-4">
-												<h4 class="text-2xl font-bold">{post.data.title}</h4>
-												<div class="mt-1 text-neutral-700">
-													<FormattedDate date={post.data.publishedDate} />
-												</div>
-												<p class="mt-4 text-neutral-700 text-lg">{post.data.description}</p>
+			</div>
+		</header>
+	</div>
+	<main class="bg-linear-to-b">
+		<div class="container mx-auto px-8 py-16">
+			<h2 class="mb-12 text-blue-950 text-3xl font-bold">Recent posts</h2>
+			<section>
+				<ul class="grid grid-cols-3 gap-8">
+					{
+						posts.map((post) => (
+							<li class="h-full">
+								<a href={`/blog/${post.id}/`} class="flex h-full overflow-hidden border border-slate-200 shadow-sm rounded-lg hover:shadow-md bg-white hover:-translate-y-0.5 transition duration-150">
+									<div class="flex-none w-1/5 overflow-hidden bg-slate-600">
+										{post.data.image && (
+											<Image src={post.data.image} alt="" class="w-full h-full object-center object-cover scale-200" />
+										)}
+									</div>
+									<div class="flex flex-col justify-between">
+										<div class="p-4">
+											<h4 class="text-2xl font-bold">{post.data.title}</h4>
+											<div class="mt-1 text-neutral-700">
+												<FormattedDate date={post.data.publishedDate} />
 											</div>
+											<p class="mt-4 text-neutral-700 text-lg">{post.data.description}</p>
 										</div>
-									</a>
-								</li>
-							))
-						}
-					</ul>
-				</section>
-			</div>
-		</main>
-		<footer class="relative border-t border-slate-200 bg-white">
-			<div class="relative container mx-auto px-8 py-8 text-center">
-				<p class="text-blue-950">© 2026 Ars Contextus. All rights reserved.</p>
-			</div>
-		</footer>
-	</body>
-</html>
+									</div>
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</div>
+	</main>
+</BaseLayout>

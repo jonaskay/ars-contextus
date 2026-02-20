@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 
-import "../../styles/global.css";
+import BaseLayout from "../../layouts/base-layout.astro";
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -16,44 +16,24 @@ const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Ars Contextus</title>
-	</head>
-	<body>
-		<nav class="relative bg-slate-900 text-blue-50">
-			<ul class="container mx-auto px-8 py-2 flex items-center justify-between gap-4">
-				<li>
-					<a href="/" class="font-medium">Ars Contextus</a>
-				</li>
-			</ul>
-		</nav>
-		<div class="relative">
-			<header class="relative">
-				<div class="absolute inset-0 bg-linear-to-r from-blue-200 via-violet-200 to-violet-400"></div>
-				<div class="relative container mx-auto px-8 pt-36 pb-12">
-					<div class="prose prose-lg mx-auto">
-						<h1>{post.data.title}</h1>
-					</div>
+<BaseLayout
+	title={post.data.title}
+>
+	<div class="relative">
+		<header class="relative">
+			<div class="absolute inset-0 bg-linear-to-r from-blue-200 via-violet-200 to-violet-400"></div>
+			<div class="relative container mx-auto px-8 pt-36 pb-12">
+				<div class="prose prose-lg mx-auto">
+					<h1>{post.data.title}</h1>
 				</div>
-			</header>
+			</div>
+		</header>
+	</div>
+	<main class="bg-linear-to-b">
+		<div class="container mx-auto px-8 py-8">
+			<article class="prose prose-lg mx-auto">
+				<Content />
+			</article>
 		</div>
-		<main class="bg-linear-to-b">
-			<div class="container mx-auto px-8 py-8">
-				<article class="prose prose-lg mx-auto">
-					<Content />
-				</article>
-			</div>
-		</main>
-		<footer class="relative border-t border-violet-200 bg-white">
-			<div class="relative container mx-auto px-8 py-8 text-center">
-				<p class="text-blue-950">© 2026 Ars Contextus. All rights reserved.</p>
-			</div>
-		</footer>
-	</body>
-</html>
+	</main>
+</BaseLayout>
