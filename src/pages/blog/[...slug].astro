@@ -1,6 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 
+import FormattedDate from '../../components/formatted-date.astro';
 import BaseLayout from "../../layouts/base-layout.astro";
 
 export async function getStaticPaths() {
@@ -21,17 +22,20 @@ const { Content } = await render(post);
 >
 	<div class="relative">
 		<header class="relative">
-			<div class="absolute inset-0 bg-linear-to-r from-blue-200 via-violet-200 to-violet-400"></div>
-			<div class="relative container mx-auto px-8 pt-36 pb-12">
-				<div class="prose prose-lg mx-auto">
+			<div class="absolute inset-0 bg-linear-to-r from-blue-100 via-orange-100 to-blue-100"></div>
+			<div class="relative container mx-auto px-4 sm:px-8 pt-12 sm:pt-36 pb-12">
+				<div class="prose md:prose-lg mx-auto">
+					<div class="text-neutral-700">
+						<FormattedDate date={post.data.publishedDate} />
+					</div>
 					<h1>{post.data.title}</h1>
 				</div>
 			</div>
 		</header>
 	</div>
 	<main class="bg-linear-to-b">
-		<div class="container mx-auto px-8 py-8">
-			<article class="prose prose-lg mx-auto">
+		<div class="container mx-auto px-4 sm:px-8 py-8">
+			<article class="prose md:prose-lg mx-auto text-wrap wrap-break-word">
 				<Content />
 			</article>
 		</div>
