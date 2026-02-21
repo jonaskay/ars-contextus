@@ -31,11 +31,11 @@ const posts = (await getCollection('blog')).sort(
 							posts.map((post) => (
 								<li class="h-full">
 									<a href={`/blog/${post.id}/`} class="flex h-full overflow-hidden border border-slate-200 shadow-sm rounded-lg hover:shadow-md bg-white hover:-translate-y-0.5 transition duration-150">
-										<div class="flex-none w-1/5 overflow-hidden bg-slate-600">
-											{post.data.image && (
-												<Image src={post.data.image} alt="" class="w-full h-full object-center object-cover scale-200" />
-											)}
-										</div>
+										{post.data.image && (
+											<div class="flex-none w-1/5 overflow-hidden bg-slate-600">
+													<Image src={post.data.image} alt="" class="w-full h-full object-center object-cover scale-200" />
+											</div>
+										)}
 										<div class="flex flex-col justify-between">
 											<div class="p-4">
 												<h4 class="text-2xl font-bold">{post.data.title}</h4>
