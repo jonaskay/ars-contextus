@@ -5,55 +5,81 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/base-layout.astro";
 import FormattedDate from "../components/formatted-date.astro";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
 );
 ---
 
 <BaseLayout title="Ars Contextus">
-	<div class="relative">
-		<div class="absolute inset-0 opacity-50"></div>
-		<header class="relative">
-			<div class="absolute inset-0 bg-linear-to-r from-violet-200 via-blue-100 to-violet-200"></div>
-			<div class="relative container mx-auto px-6 sm:px-8 pt-18 md:pt-24 pb-10 md:pb-16 text-center">
-				<h1 class="text-blue-950 text-5xl md:text-7xl font-bold">Ars Contextus</h1>
-				<p class="mt-8 text-xl md:text-2xl text-blue-950">Blog about software engineering with LLMs</p>
-			</div>
-		</header>
-	</div>
-	<main class="bg-linear-to-b">
-		<div class="container mx-auto px-6 sm:px-8 py-10 md:py-16">
-			<h2 class="mb-12 text-blue-950 text-3xl font-bold">Recent posts</h2>
-			<section>
-				{posts.length > 0 ? (
-					<ul class="xl:grid xl:grid-cols-3 xl:gap-8">
-						{
-							posts.map((post) => (
-								<li class="h-full">
-									<a href={`/blog/${post.id}/`} class="flex h-full overflow-hidden border border-slate-200 shadow-sm rounded-lg hover:shadow-md bg-white hover:-translate-y-0.5 transition duration-150">
-										{post.data.image && (
-											<div class="flex-none w-1/5 overflow-hidden bg-slate-600">
-													<Image src={post.data.image} alt="" class="w-full h-full object-center object-cover scale-200" />
-											</div>
-										)}
-										<div class="flex flex-col justify-between">
-											<div class="p-4">
-												<h4 class="text-2xl font-bold">{post.data.title}</h4>
-												<div class="mt-1 text-neutral-700">
-													<FormattedDate date={post.data.publishedDate} />
-												</div>
-												<p class="mt-4 text-neutral-700 text-lg">{post.data.description}</p>
-											</div>
-										</div>
-									</a>
-								</li>
-							))
-						}
-					</ul>
-				) : (
-					<p class="text-lg text-neutral-700">Check back soon!</p>
-				)}
-			</section>
-		</div>
-	</main>
+  <div class="relative">
+    <div class="absolute inset-0 opacity-50"></div>
+    <header class="relative">
+      <div
+        class="absolute inset-0 bg-linear-to-r from-violet-200 via-blue-100 to-violet-200 dark:from-violet-900 dark:via-blue-900 dark:to-violet-900"
+      >
+      </div>
+      <div
+        class="relative container mx-auto px-6 sm:px-8 pt-18 md:pt-24 pb-10 md:pb-16 text-center"
+      >
+        <h1
+          class="text-slate-950 dark:text-slate-50 text-5xl md:text-7xl font-bold"
+        >
+          Ars Contextus
+        </h1>
+        <p class="mt-8 text-xl md:text-2xl text-slate-950 dark:text-slate-50">
+          Blog about software engineering with LLMs
+        </p>
+      </div>
+    </header>
+  </div>
+  <main class="bg-white dark:bg-slate-900">
+    <div class="container mx-auto px-6 sm:px-8 py-10 md:py-16">
+      <h2 class="mb-12 text-slate-950 dark:text-slate-50 text-3xl font-bold">
+        Recent posts
+      </h2>
+      <section>
+        {
+          posts.length > 0 ? (
+            <ul class="xl:grid xl:grid-cols-3 xl:gap-8">
+              {posts.map((post) => (
+                <li class="h-full">
+                  <a
+                    href={`/blog/${post.id}/`}
+                    class="flex h-full overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm rounded-lg hover:shadow-md bg-white dark:bg-slate-800 hover:-translate-y-0.5 transition duration-150"
+                  >
+                    {post.data.image && (
+                      <div class="flex-none w-1/5 overflow-hidden bg-slate-600">
+                        <Image
+                          src={post.data.image}
+                          alt=""
+                          class="w-full h-full object-center object-cover scale-200"
+                        />
+                      </div>
+                    )}
+                    <div class="flex flex-col justify-between">
+                      <div class="p-4">
+                        <h4 class="text-slate-950 dark:text-slate-50 text-2xl font-bold">
+                          {post.data.title}
+                        </h4>
+                        <div class="mt-1 text-slate-700 dark:text-slate-200">
+                          <FormattedDate date={post.data.publishedDate} />
+                        </div>
+                        <p class="mt-4 text-slate-700 dark:text-slate-200 text-lg">
+                          {post.data.description}
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p class="text-slate-950 dark:text-slate-50 text-lg">
+              Check back soon!
+            </p>
+          )
+        }
+      </section>
+    </div>
+  </main>
 </BaseLayout>
