@@ -26,6 +26,6 @@ safe-outputs:
 
 ---
 
-# daily-improvement-issues
+# weekly-improvement-issues
 
 Find concrete, high-impact improvements for this repository and draft GitHub issues for the best opportunities.
