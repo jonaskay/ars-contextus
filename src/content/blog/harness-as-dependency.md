@@ -88,4 +88,4 @@ Companies that use a single coding agent don’t really need to worry about this
 
 * We could have easy versioning by referring to Git commits on main. The idea here is that the harness is still meant for a single codebase, and the workspace is the changing variable. We don’t need to publish our harness for the whole world to use.
 * If I see my harness failing and want to try a fix, I don’t want to make the change in another repository, run a build, and try again. I want to experiment directly in my current workspace. If it works, I could run a command that checks my changes against the Git-committed harness assets and applies them to the harness repository.
-* Can we have Backstage, but for agents? A place where harnesses live. I could browse an internal catalog of skills and install them from there with a single click of a button.
+* Can we have [Backstage](https://backstage.io/), but for agents? A place where harnesses live. I could browse an internal catalog of skills and install them from there with a single click of a button.
