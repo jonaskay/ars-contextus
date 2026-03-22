@@ -6,7 +6,7 @@ import BaseLayout from "../layouts/base-layout.astro";
 import FormattedDate from "../components/formatted-date.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+  (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf()
 );
 ---
 
@@ -40,7 +40,7 @@ const posts = (await getCollection("blog")).sort(
       <section>
         {
           posts.length > 0 ? (
-            <ul class="xl:grid xl:grid-cols-3 xl:gap-8">
+            <ul class="xl:grid xl:grid-cols-3 xl:gap-8 space-y-8 xl:space-y-0">
               {posts.map((post) => (
                 <li class="h-full">
                   <a

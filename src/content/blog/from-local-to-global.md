@@ -1,6 +1,9 @@
 ---
 title: From local to global, and other ways of dealing with instruction bloat and bike shedding
 description: A practical guide to shared agent instructions — what to include, how to avoid instruction bloat and bike shedding, and simple ways teams can evaluate whether their instructions actually improve results.
+headerGradient:
+  light: "from-blue-100 via-orange-100 to-blue-100"
+  dark: "dark:from-blue-900 dark:via-orange-900 dark:to-blue-900"
 publishedDate: 2025-02-21
 ---
 
@@ -149,4 +152,3 @@ It sounds like we need new capabilities (instruction and skill crafting) in our 
 No. If you have ever done prompt engineering for an AI-powered tool or even crafted prompts for a particular workflow, you will have noticed that it’s really important to keep the feedback loop as short as possible. You won’t get the prompts right on the first try. You will need to adjust things, try again, adjust more, try again a couple of times, and so on until you consistently get better outputs.
 
 In practice, this means that when it comes to instructions and skills, dogfooding your instructions seems like the best way to go about it. By dogfooding, I mean that you evaluate instructions and skills by being a user of those instructions and skills. If you have centralized “instruction engineers” running around between teams, you will lose that feedback loop and the necessary intuition-building that feature developers need to cultivate.
-

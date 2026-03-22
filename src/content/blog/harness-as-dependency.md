@@ -1,6 +1,9 @@
 ---
 title: Harness as Dependency, and the messy workspaces of harness engineers
 description: A practical exploration of managing reusable “harnesses” across local and cloud environments — and why we still lack good patterns for doing it well.
+headerGradient:
+  light: "from-emerald-100 via-blue-100 to-emerald-100"
+  dark: "dark:from-emerald-900 dark:via-blue-900 dark:to-emerald-900"
 publishedDate: 2026-03-22
 ---
 
