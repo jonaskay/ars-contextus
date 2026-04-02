@@ -4,7 +4,7 @@ description: A practical guide to shared agent instructions — what to include,
 headerGradient:
   light: "from-blue-100 via-orange-100 to-blue-100"
   dark: "dark:from-blue-900 dark:via-orange-900 dark:to-blue-900"
-publishedDate: 2025-02-21
+publishedDate: 2026-02-21
 ---
 
 Last year in 2025, I ran trainings on AI-first software engineering for over 300 developers from organizations ranging from fewer than 100 employees to over 10,000 employees. I saw a lot. And I got to hear a lot of “how should I or we do X?” questions. Often the X was about agent instructions. The two big questions relating to these agent instructions were:
