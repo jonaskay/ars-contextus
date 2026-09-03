@@ -13,6 +13,7 @@ I had a conversation with someone who had taken their coding agent, pointed it t
 
 ## “Code is no longer the bottleneck”
 Code tends to be the bottleneck for rewrite projects, first releases, and projects that have collected so much technical debt that velocity has ground to a halt. Those are the situations where you have large amounts of spec that need to be turned into code before you can start generating value. With existing software, the bottleneck is most of the time learning: if your design strategy is “more is more,” then good luck delivering experiences that your users will enjoy.
+
 You might still feel that velocity is your bottleneck even though you are not working on a rewrite, a first release, or a project with massive amounts of tech debt. In this case, you are most likely a [“feature team”](https://www.svpg.com/product-vs-feature-teams/) where the product owner acts as a backlog administrator and success is measured by output.
 
 If you are a team that focuses on outcomes, then your bottleneck has most likely been planning, design, and learning for a long time. In those settings, developers not delivering fast enough is a problem only when you are working toward some time-sensitive milestone.
