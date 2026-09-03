@@ -21,7 +21,8 @@ If you are a feature team that wants to become this type of a "product team," yo
 
 Anthropic’s AI-Native SDLC Playbook provides steps for achieving this output velocity, as code is indeed becoming less and less of a bottleneck for teams that just want more story points done per sprint.
 
-**Verdict:** This playbook feels like a step back for modern product management.
+### Verdict
+**This playbook feels like a step back for modern product management.**
 
 ## Traditional SDLC versus AI-Native SDLC
 The playbook describes traditional SDLC through the following steps:
@@ -35,7 +36,8 @@ The playbook describes traditional SDLC through the following steps:
 
 Even before coding agents, many of these steps were anything but modern. Gathering requirements by committee, having analysts write specs for designers, and having humans watch production for bugs are anti-patterns. These were signs of poor product, design, and technical skills.
 
-**Verdict:** If you recognize yourself in the planning, design, and maintenance steps, you most likely have a capabilities problem, not a velocity problem that can be solved by agents.
+### Verdict
+**If you recognize yourself in the planning, design, and maintenance steps, you most likely have a capabilities problem, not a velocity problem that can be solved by agents.**
 
 ## Plan
 The playbook instructs everyone to write down their ideas together with Claude and save them as `intent.md` files. This file is then reviewed and modified by the product owner and committed to the codebase.
@@ -44,14 +46,16 @@ Writing down ideas and sharing them with others is a great practice. I believe t
 
 I believe that if the `intent.md` files become unbearable for the product owner to read, it’s possible to tweak the agent skills used to write those ideas. Limiting `intent.md` to a single A4 page is probably a good start.
 
-**Verdict:** Receiving ideas through `intent.md` files is something I would personally prefer as a product owner.
+### Verdict
+**Receiving ideas through `intent.md` files is something I would personally prefer as a product owner.**
 
 ## Design
 Designers are not needed in this new AI-native way of doing things according to the playbook. Maybe there are some somewhere in the background, still drawing occasional Figma mockups for agents to validate their designs against. But they don't seem to take part in the Plan and Design steps. Is this a problem?
 
 [Anthropic still has designers, and these designers work on designs before and after implementation](https://youtu.be/eh8bcBIAAFo). To me, that seems like enough proof that current agents are not able to replace designers, even if the only thing you want to automate is pixel-perfecting. Trying to automate user research and interface design seems like something that will be even harder to do.
 
-**Verdict:** If you want to keep your designer on your team, then this playbook might fall completely apart in the plan and design steps. Lifting these patterns for your team might not work at all.
+### Verdict
+**If you want to keep your designer on your team, then this playbook might fall completely apart in the plan and design steps. Lifting these patterns for your team might not work at all.**
 
 ## Build
 The product owner generates a `spec.md` file from `intent.md` to follow a type of multi-person, spec-driven development approach. This approach leaves a lot to be desired.
@@ -73,7 +77,8 @@ But there’s some really valuable stuff as well:
 * Do use worktrees so that you always have the option to easily jump into another task while another agent is working on something else.
 * Do use verifier and evaluator agents to review implementations before you start reading the lines of code.
 
-**Verdict:** There are both gems and misses among the productivity tips. Communicating specs only through Markdown files within your team is an anti-pattern.
+### Verdict
+**There are both gems and misses among the productivity tips. Communicating specs only through Markdown files within your team is an anti-pattern.**
 
 ## Test
 Here I will focus on the biggest WTF moment I had with the playbook: **Continuous evals in CI**. The described setup is nonsensical.
@@ -93,7 +98,8 @@ At least to me, it seems like the only way to get any of this working is to move
 
 Other than that, providing feedback loops for agents is critical for more consistent results. However, you will likely need to introduce a human-in-the-loop for test generation, as agents tend to write lots of low-value tests, especially in the integration layer, which will end up hurting you in the long run.
 
-**Verdict:** Follow the advice about feedback loops. Continuous evals seem to be missing some critical information needed to make them something you can actually implement.
+### Verdict
+**Follow the advice about feedback loops. Continuous evals seem to be missing some critical information needed to make them something you can actually implement.**
 
 ## Deploy
 I truly wish that coding agents would free me from the toil of PR reviews, but I struggle to find teams that are actually able to replace reviews with things like `REVIEW.md` files.
@@ -104,7 +110,8 @@ The much more useful review helpers missing from the playbook are those that sur
 
 What the playbook does suggest to ease reviews is adding guardrails through hooks for different file edits (e.g., no edits to infra files unless changes are requested with a ticket). This is a great pattern but a limited tool for handling PR overflow.
 
-**Verdict:** Overly optimistic about the current capabilities of agents and models.
+### Verdict
+**Overly optimistic about the current capabilities of agents and models.**
 
 ## Maintenance
 Scheduled scripts for catching anomalies in things like post-deployment 5xx rates that trigger Claude runs for diagnosis are engineering at its finest. This will help you sleep better at night as an engineer, even though agents might rarely be able to identify the root causes (these types of tasks seem generally very hard for agents).
@@ -113,7 +120,8 @@ Automated PRs from bug tickets are something I feel every team should aim for. B
 
 Having agents sniff out tech debt and bad style asynchronously as background jobs seems like a great way to manage the increasing complexity that agents (and humans) will generate in your codebase if you relax human supervision. This stuff should be done without human prompts, and you should let the agents report issues and propose fixes themselves.
 
-**Verdict:** Great goals for all teams.
+### Verdict
+**Great goals for all teams.**
 
 ## Final thoughts
 Anthropic’s AI-Native SDLC playbook is clearly meant to showcase Claude’s features and capabilities. However, it contains some great advice and covers tons of ground. In general, the playbook can give someone a good sense of what true AI-native SDLC smells and tastes like.
