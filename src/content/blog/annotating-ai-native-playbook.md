@@ -18,7 +18,7 @@ You might still feel that velocity is your bottleneck even though you are not wo
 
 If you are a team that focuses on outcomes, then your bottleneck has most likely been planning, design, and learning for a long time. In those settings, developers not delivering fast enough is a problem only when you are working toward some time-sensitive milestone.
 
-If you are a feature team that wants to become this type of a "product team," you are facing an organizational problem, not an AI adoption problem. But the sad reality is that organizational solutions are often outside a team’s sphere of influence. Your product owner will have a much more enjoyable work day if they keep the business stakeholders happy by delivering stuff faster for them.
+If you are a feature team that wants to become this type of a "product team," you are facing an organizational problem, not an AI adoption problem. But the sad reality is that organizational solutions are often outside a team’s sphere of influence. You don't have the power to say to business that from now on you will start maximizing value and minimizing output.
 
 Anthropic’s AI-Native SDLC Playbook provides steps for achieving this output velocity, as code is indeed becoming less and less of a bottleneck for teams that just want more story points done per sprint.
 
