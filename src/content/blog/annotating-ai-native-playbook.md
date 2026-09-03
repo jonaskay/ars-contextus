@@ -112,7 +112,7 @@ The much more useful review helpers missing from the playbook are those that sur
 What the playbook does suggest to ease reviews is adding guardrails through hooks for different file edits (e.g., no edits to infra files unless changes are requested with a ticket). This is a great pattern but a limited tool for handling PR overflow.
 
 ### Verdict
-**Overly optimistic about the current capabilities of agents and models.**
+**The vision laid out is overly optimistic about the current capabilities of agents and models.**
 
 ## Maintenance
 Scheduled scripts for catching anomalies in things like post-deployment 5xx rates that trigger Claude runs for diagnosis are engineering at its finest. This will help you sleep better at night as an engineer, even though agents might rarely be able to identify the root causes (these types of tasks seem generally very hard for agents).
@@ -122,7 +122,7 @@ Automated PRs from bug tickets are something I feel every team should aim for. B
 Having agents sniff out tech debt and bad style asynchronously as background jobs seems like a great way to manage the increasing complexity that agents (and humans) will generate in your codebase if you relax human supervision. This stuff should be done without human prompts, and you should let the agents report issues and propose fixes themselves.
 
 ### Verdict
-**Great goals for all teams.**
+**These are great goals for all teams.**
 
 ## Final thoughts
 Anthropic’s AI-Native SDLC playbook is clearly meant to showcase Claude’s features and capabilities. However, it contains some great advice and covers tons of ground. In general, the playbook can give someone a good sense of what true AI-native SDLC smells and tastes like.
