@@ -2,8 +2,8 @@
 title: Annotations for Anthropic’s AI-Native SDLC Playbook
 description: "A critical look at Anthropic’s AI-Native SDLC Playbook: what works, what doesn’t, and where its advice on agents, design, evals, and reviews falls short."
 headerGradient:
-  light: "from-slate-200 via-rose-200 to-slate-200"
-  dark: "dark:from-slate-900 dark:via-rose-900 dark:to-slate-900"
+  light: "from-rose-200 to-slate-200"
+  dark: "dark:from-rose-900 dark:to-slate-900"
 publishedDate: 2026-09-03
 ---
 

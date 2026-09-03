@@ -2,8 +2,8 @@
 title: From local to global, and other ways of dealing with instruction bloat and bike shedding
 description: A practical guide to shared agent instructions — what to include, how to avoid instruction bloat and bike shedding, and simple ways teams can evaluate whether their instructions actually improve results.
 headerGradient:
-  light: "from-blue-100 via-orange-100 to-blue-100"
-  dark: "dark:from-blue-900 dark:via-orange-900 dark:to-blue-900"
+  light: "from-emerald-100 to-blue-100"
+  dark: "dark:from-emerald-900 dark:to-blue-900"
 publishedDate: 2026-02-21
 ---
 
