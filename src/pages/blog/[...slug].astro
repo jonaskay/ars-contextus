@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 
 import FormattedDate from "../../components/formatted-date.astro";
@@ -15,34 +16,39 @@ type Props = CollectionEntry<"blog">;
 
 const post = Astro.props;
 const { Content } = await render(post);
-const { headerGradient } = post.data;
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <div class="relative">
-    <header class="relative">
-      <div
-        class:list={[
-          "absolute inset-0 bg-linear-to-r",
-          headerGradient.light,
-          headerGradient.dark,
-        ]}
-      >
-      </div>
-      <div class="relative container mx-auto px-4 sm:px-8 pt-12 sm:pt-36 pb-12">
-        <div class="prose md:prose-lg mx-auto">
-          <div class="text-neutral-700 dark:text-neutral-300">
-            <FormattedDate date={post.data.publishedDate} />
-          </div>
-          <h1 class="text-slate-950 dark:text-slate-50">{post.data.title}</h1>
+  <header class="relative">
+    {
+      post.data.image && (
+        <div class="absolute inset-0 z-0 overflow-hidden">
+          <Image
+            src={post.data.image}
+            alt=""
+            class={`w-full h-full object-cover ${post.data.imagePosition ?? "object-[50% 50%]"} xl:blur-xs 2xl:blur-sm`}
+          />
+          <div class="absolute inset-0 bg-black opacity-75" />
         </div>
+      )
+    }
+    <div
+      class="relative container mx-auto px-4 sm:px-8 pt-12 sm:pt-36 pb-6 sm:pb-8 lg:pb-12"
+    >
+      <div class="relative z-1 lg:col-span-3 prose md:prose-lg mx-auto">
+        <div class="text-neutral-300">
+          <FormattedDate date={post.data.publishedDate} />
+        </div>
+        <h1 class="text-neutral-50">
+          {post.data.title}
+        </h1>
       </div>
-    </header>
-  </div>
-  <main class="bg-linear-to-b">
+    </div>
+  </header>
+  <main class="border-b border-neutral-200 dark:border-neutral-700">
     <div class="container mx-auto px-4 sm:px-8 py-8">
       <article
-        class="prose md:prose-lg dark:prose-invert mx-auto text-wrap wrap-break-word"
+        class="prose md:prose-lg dark:prose-invert mx-auto mb-8 text-wrap wrap-break-word"
       >
         <Content />
       </article>

@@ -29,34 +29,49 @@ const latestPost = posts[0];
 <BaseLayout title="Ars Contextus">
   <div class="relative">
     <div class="absolute inset-0 opacity-50"></div>
-    <header class="relative">
-      <div
-        class="absolute inset-0 bg-linear-to-r from-blue-200 via-emerald-100 to-blue-200 dark:from-blue-900 dark:via-emerald-900 dark:to-blue-900"
-      >
-      </div>
-      <div
-        class="relative container mx-auto px-6 sm:px-8 pt-18 md:pt-24 pb-10 md:pb-16 grid grid-cols-2 gap-8"
-      >
-        <div>
+    <header
+      class="relative bg-linear-to-r from-neutral-200 to-neutral-300 dark:from-neutral-800 dark:via-neutral-900 dark:to-neutral-800"
+    >
+      <div class="relative container sm:grid sm:grid-cols-5 mx-auto">
+        <div class="sm:col-span-2 px-6 sm:px-8 pt-12 md:pt-24 pb-10 md:pb-16">
           <h1
-            class="text-slate-950 dark:text-slate-50 text-5xl md:text-5xl font-bold"
+            class="text-neutral-950 dark:text-neutral-50 text-5xl md:text-5xl font-bold"
           >
             Ars Contextus
           </h1>
-          <p class="mt-8 text-xl md:text-2xl text-slate-950 dark:text-slate-50">
-            Blog about software engineering with LLMs
+          <p
+            class="mt-2 text-xl md:text-2xl text-neutral-950 dark:text-neutral-50 font-bold"
+          >
+            Software engineering with LLMs
           </p>
         </div>
-        <div>
-          <h2 class="text-slate-950 dark:text-slate-50 font-bold">
-            Latest post
-          </h2>
-          <div class="prose prose-lg">
+        <div class="relative sm:col-span-3 px-6 sm:px-16 py-12 sm:py-18">
+          {
+            latestPost.data.image && (
+              <div class="absolute inset-y-0 inset-x-0 sm:inset-x-8 z-0">
+                <Image
+                  src={latestPost.data.image}
+                  alt=""
+                  class={`w-full h-full object-cover object-cover ${latestPost.data.imagePosition ?? "object-[50% 50%]"}`}
+                />
+                <div class="absolute inset-0 bg-black opacity-75" />
+              </div>
+            )
+          }
+          <div class="relative z-10">
+            <h2 class="mb-1 text-neutral-200 uppercase tracking-wider">
+              Latest post
+            </h2>
             <a href={`/blog/${latestPost.id}/`}>
-              <h4>
+              <h4 class="text-3xl text-neutral-50 font-bold underline">
                 {latestPost.data.title}
               </h4>
-              <p>
+              <div class="mt-1 mb-4 text-neutral-200">
+                <FormattedDate date={latestPost.data.publishedDate} />
+              </div>
+            </a>
+            <a href={`/blog/${latestPost.id}/`} class="underline">
+              <p class="text-lg sm:text-xl text-neutral-200">
                 {latestPost.data.description}
               </p>
             </a>
@@ -65,47 +80,51 @@ const latestPost = posts[0];
       </div>
     </header>
   </div>
-  <main class="bg-white dark:bg-slate-900">
+  <main
+    class="border-b border-neutral-200 dark:border-none bg-white dark:bg-neutral-900"
+  >
     <div class="container mx-auto px-6 sm:px-8 py-10 md:py-16">
       {
         sections.map((section) => (
           <section class="not-last:mb-16">
-            <h2 class="mb-12 text-slate-950 dark:text-slate-50 text-3xl font-bold">
+            <h2 class="mb-4 text-neutral-950 dark:text-neutral-50 text-3xl font-bold">
               {section.title}
             </h2>
+            <hr class="mb-4 border border-neutral-300 dark:border-neutral-700" />
             {section.articles.length > 0 ? (
-              <ul class="xl:grid xl:grid-cols-3 xl:gap-8 space-y-8 xl:space-y-0">
+              <ul class="lg:grid lg:grid-cols-2 xl:grid-cols-3 lg:gap-8 space-y-8 xl:space-y-0">
                 {section.articles.map((article) => (
                   <li class="h-full">
                     <a
                       href={`/blog/${article.id}/`}
-                      class="flex h-full overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm rounded-lg hover:shadow-md bg-white dark:bg-slate-800 hover:-translate-y-0.5 transition duration-150"
+                      class="flex h-full overflow-hidden border border-neutral-200 dark:border-none shadow-sm rounded-lg hover:shadow-md bg-white dark:bg-neutral-800 hover:-tranneutral-y-0.5 transition duration-150"
                     >
-                      {article.data.image && (
-                        <div class="flex-none w-1/5 overflow-hidden bg-slate-600">
-                          <Image
-                            src={article.data.image}
-                            alt=""
-                            class="w-full h-full object-center object-cover scale-200"
-                          />
-                        </div>
-                      )}
                       <div class="flex flex-col justify-between">
                         <div>
-                          <div
-                            class={`p-4 bg-linear-to-r ${article.data.headerGradient.light} ${article.data.headerGradient.dark}`}
-                          >
-                            <h4 class="text-slate-950 dark:text-slate-50 text-2xl font-bold">
-                              {article.data.title}
-                            </h4>
-                            <div class="mt-1 text-slate-700 dark:text-slate-200">
-                              <FormattedDate
-                                date={article.data.publishedDate}
-                              />
+                          <div class="relative p-4">
+                            {article.data.image && (
+                              <div class="absolute inset-0 z-0 overflow-hidden">
+                                <Image
+                                  src={article.data.image}
+                                  alt=""
+                                  class={`w-full h-full object-cover object-cover blur-xs ${article.data.imagePosition ?? "object-[50% 50%]"}`}
+                                />
+                                <div class="absolute inset-0 bg-black opacity-75" />
+                              </div>
+                            )}
+                            <div class="relative z-10 pt-12">
+                              <h4 class="text-neutral-50 text-2xl font-bold hover:underline">
+                                {article.data.title}
+                              </h4>
+                              <div class="mt-1 text-neutral-200">
+                                <FormattedDate
+                                  date={article.data.publishedDate}
+                                />
+                              </div>
                             </div>
                           </div>
                           <div class="p-4 pt-0">
-                            <p class="mt-4 text-slate-700 dark:text-slate-200 text-lg">
+                            <p class="mt-4 text-neutral-700 dark:text-neutral-200 text-lg">
                               {article.data.description}
                             </p>
                           </div>
@@ -116,7 +135,7 @@ const latestPost = posts[0];
                 ))}
               </ul>
             ) : (
-              <p class="text-slate-950 dark:text-slate-50 text-lg">
+              <p class="text-neutral-950 dark:text-neutral-50 text-lg">
                 Check back soon!
               </p>
             )}
