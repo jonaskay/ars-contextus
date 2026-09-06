@@ -5,9 +5,20 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/base-layout.astro";
 import FormattedDate from "../components/formatted-date.astro";
 
-const posts = (await getCollection("blog")).sort(
+const articles = (await getCollection("blog")).sort(
   (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
 );
+
+const sections = [
+  {
+    title: "Recent posts",
+    articles: articles.filter((article) => article.data.type === "post"),
+  },
+  {
+    title: "Patterns for coding agents",
+    articles: articles.filter((article) => article.data.type === "pattern"),
+  },
+];
 ---
 
 <BaseLayout title="Ars Contextus">
@@ -34,58 +45,62 @@ const posts = (await getCollection("blog")).sort(
   </div>
   <main class="bg-white dark:bg-slate-900">
     <div class="container mx-auto px-6 sm:px-8 py-10 md:py-16">
-      <h2 class="mb-12 text-slate-950 dark:text-slate-50 text-3xl font-bold">
-        Recent posts
-      </h2>
-      <section>
-        {
-          posts.length > 0 ? (
-            <ul class="xl:grid xl:grid-cols-3 xl:gap-8 space-y-8 xl:space-y-0">
-              {posts.map((post, index) => (
-                <li class="h-full">
-                  <a
-                    href={`/blog/${post.id}/`}
-                    class="flex h-full overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm rounded-lg hover:shadow-md bg-white dark:bg-slate-800 hover:-translate-y-0.5 transition duration-150"
-                  >
-                    {post.data.image && (
-                      <div class="flex-none w-1/5 overflow-hidden bg-slate-600">
-                        <Image
-                          src={post.data.image}
-                          alt=""
-                          class="w-full h-full object-center object-cover scale-200"
-                        />
-                      </div>
-                    )}
-                    <div class="flex flex-col justify-between">
-                      <div>
-                        <div
-                          class={`p-4 bg-linear-to-r ${post.data.headerGradient.light} ${post.data.headerGradient.dark}`}
-                        >
-                          <h4 class="text-slate-950 dark:text-slate-50 text-2xl font-bold">
-                            {post.data.title}
-                          </h4>
-                          <div class="mt-1 text-slate-700 dark:text-slate-200">
-                            <FormattedDate date={post.data.publishedDate} />
+      {
+        sections.map((section) => (
+          <section class="not-last:mb-16">
+            <h2 class="mb-12 text-slate-950 dark:text-slate-50 text-3xl font-bold">
+              {section.title}
+            </h2>
+            {section.articles.length > 0 ? (
+              <ul class="xl:grid xl:grid-cols-3 xl:gap-8 space-y-8 xl:space-y-0">
+                {section.articles.map((article) => (
+                  <li class="h-full">
+                    <a
+                      href={`/blog/${article.id}/`}
+                      class="flex h-full overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm rounded-lg hover:shadow-md bg-white dark:bg-slate-800 hover:-translate-y-0.5 transition duration-150"
+                    >
+                      {article.data.image && (
+                        <div class="flex-none w-1/5 overflow-hidden bg-slate-600">
+                          <Image
+                            src={article.data.image}
+                            alt=""
+                            class="w-full h-full object-center object-cover scale-200"
+                          />
+                        </div>
+                      )}
+                      <div class="flex flex-col justify-between">
+                        <div>
+                          <div
+                            class={`p-4 bg-linear-to-r ${article.data.headerGradient.light} ${article.data.headerGradient.dark}`}
+                          >
+                            <h4 class="text-slate-950 dark:text-slate-50 text-2xl font-bold">
+                              {article.data.title}
+                            </h4>
+                            <div class="mt-1 text-slate-700 dark:text-slate-200">
+                              <FormattedDate
+                                date={article.data.publishedDate}
+                              />
+                            </div>
+                          </div>
+                          <div class="p-4 pt-0">
+                            <p class="mt-4 text-slate-700 dark:text-slate-200 text-lg">
+                              {article.data.description}
+                            </p>
                           </div>
                         </div>
-                        <div class="p-4 pt-0">
-                          <p class="mt-4 text-slate-700 dark:text-slate-200 text-lg">
-                            {post.data.description}
-                          </p>
-                        </div>
                       </div>
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p class="text-slate-950 dark:text-slate-50 text-lg">
-              Check back soon!
-            </p>
-          )
-        }
-      </section>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p class="text-slate-950 dark:text-slate-50 text-lg">
+                Check back soon!
+              </p>
+            )}
+          </section>
+        ))
+      }
     </div>
   </main>
 </BaseLayout>
