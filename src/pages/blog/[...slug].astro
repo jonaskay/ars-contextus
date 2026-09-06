@@ -26,7 +26,7 @@ const { Content } = await render(post);
           <Image
             src={post.data.image}
             alt=""
-            class={`w-full h-full object-cover ${post.data.imagePosition ?? "object-[50% 50%]"} xl:blur-xs 2xl:blur-sm`}
+            class={`w-full h-full object-cover ${post.data.imagePosition ?? "object-[50% 50%]"} xl:blur-xs`}
           />
           <div class="absolute inset-0 bg-black opacity-75" />
         </div>
