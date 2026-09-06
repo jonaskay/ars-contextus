@@ -26,6 +26,12 @@ const { Content } = await render(post);
           <Image
             src={post.data.image}
             alt=""
+            widths={[640, 960, 1280, 1920]}
+            sizes="100vw"
+            format="webp"
+            quality={75}
+            loading="eager"
+            fetchpriority="high"
             class={`w-full h-full object-cover ${post.data.imagePosition ?? "object-[50% 50%]"} xl:blur-xs`}
           />
           <div class="absolute inset-0 bg-black opacity-75" />
