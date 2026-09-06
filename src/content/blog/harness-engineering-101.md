@@ -1,6 +1,7 @@
 ---
 title: "Harness Engineering 101: How to go from zero harness to a harness that survives model upgrades"
 description: My advice on how to add your first piece of coding agent harness to your codebase and how to approach its evolution.
+type: post
 headerGradient:
   light: "from-emerald-50 to-blue-50"
   dark: "dark:from-blue-950 dark:to-blue-800"

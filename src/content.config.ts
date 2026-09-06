@@ -8,6 +8,7 @@ const blog = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
+      type: z.enum(['post', 'pattern']),
       headerGradient: z.object({
         light: z.string(),
         dark: z.string(),

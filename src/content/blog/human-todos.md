@@ -1,6 +1,7 @@
 ---
 title: Human Todos
 description: Human Todos is a practical pattern for adding human review checkpoints to coding agent workflows, helping teams validate AI-generated code at scale.
+type: pattern
 headerGradient:
   light: "from-emerald-50 to-blue-50"
   dark: "dark:from-blue-950 dark:to-blue-800"
