@@ -26,7 +26,7 @@ Even though we can now switch between programming languages with ease with the a
 
 If you lack the taste needed to judge agentic outputs, you can’t judge the true effectiveness of your harness. You can work around this by asking more skilled people to rate the outputs, but this takes more time and results in more lossy feedback.
 
-A harness engineer who is able to dog-food their own experiments will always outperform a harness engineer who always needs to loop in others.
+A harness engineer who is able to dog-food their own experiments will outperform a harness engineer who always needs to loop in others.
 
 ## Example
 
