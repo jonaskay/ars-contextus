@@ -52,12 +52,7 @@ const latestPost = posts[0];
                 <Image
                   src={latestPost.data.image}
                   alt=""
-                  widths={[640, 960, 1280]}
-                  sizes="(min-width: 640px) 60vw, 100vw"
-                  format="webp"
-                  quality={75}
-                  loading="eager"
-                  fetchpriority="high"
+                  width={896}
                   class={`w-full h-full object-cover object-cover ${latestPost.data.imagePosition ?? "object-[50% 50%]"}`}
                 />
                 <div class="absolute inset-0 bg-black opacity-75" />
@@ -113,12 +108,8 @@ const latestPost = posts[0];
                                 <Image
                                   src={article.data.image}
                                   alt=""
-                                  widths={[320, 480, 640]}
-                                  sizes="(min-width: 1280px) 33vw, (min-width: 1024px) 50vw, 100vw"
-                                  format="webp"
-                                  quality={75}
-                                  loading="lazy"
-                                  class={`w-full h-full object-cover object-cover blur-xs ${article.data.imagePosition ?? "object-[50% 50%]"}`}
+                                  width={896}
+                                  class={`w-full h-full object-cover object-cover ${article.data.imagePosition ?? "object-[50% 50%]"}`}
                                 />
                                 <div class="absolute inset-0 bg-black opacity-75" />
                               </div>
