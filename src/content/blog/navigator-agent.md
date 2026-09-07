@@ -42,7 +42,8 @@ Look up GitHub issue $ARGUMENTS.
 
 Guide the user through the implementation step by step. The user writes all the code.
 
-The user does not know Go. When writing Go code, explain language constructs, syntax, and conventions. Don't assume familiarity with Go-specific patterns.
+The user does not know Go. When writing Go code, explain language constructs, syntax, and conventions. 
+Don't assume familiarity with Go-specific patterns.
 ```
 
 When working with the agent, remember to keep asking questions about syntax and patterns that you don’t understand.
