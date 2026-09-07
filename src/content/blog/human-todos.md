@@ -4,9 +4,6 @@ description: Human Todos is a practical pattern for adding human review checkpoi
 type: pattern
 image: ../images/standing-skeleton.jpg
 imagePosition: "object-[50%_10%]"
-headerGradient:
-  light: "from-emerald-50 to-blue-50"
-  dark: "dark:from-blue-950 dark:to-blue-800"
 publishedDate: 2026-09-06
 ---
 

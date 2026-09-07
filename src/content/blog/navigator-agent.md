@@ -4,9 +4,6 @@ description: "Learn the Navigator Agent pattern: a pair-programming workflow whe
 type: pattern
 image: ../images/a-quadrant-and-a-sextant.jpg
 imagePosition: "object-[50%_50%]"
-headerGradient:
-  light: "from-emerald-50 to-blue-50"
-  dark: "dark:from-blue-950 dark:to-blue-800"
 publishedDate: 2026-09-06
 ---
 

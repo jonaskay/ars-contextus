@@ -4,9 +4,6 @@ description: A practical exploration of managing reusable “harnesses” across
 type: post
 image: ../images/witches-and-devils-dancing-in-a-circle.jpg
 imagePosition: "object-[50%_25%]"
-headerGradient:
-  light: "from-emerald-50 to-blue-50"
-  dark: "dark:from-blue-950 dark:to-blue-800"
 publishedDate: 2026-03-22
 ---
 

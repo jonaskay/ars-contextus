@@ -4,9 +4,6 @@ description: A practical guide to shared agent instructions — what to include,
 type: post
 image: ../images/a-ship-being-confronted-by-a-sea-devil.jpg
 imagePosition: "object-[50%_50%]"
-headerGradient:
-  light: "from-emerald-50 to-blue-50"
-  dark: "dark:from-blue-950 dark:to-blue-800"
 publishedDate: 2026-02-21
 ---
 

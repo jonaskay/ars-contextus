@@ -4,9 +4,6 @@ description: My advice on how to add your first piece of coding agent harness to
 type: post
 image: ../images/a-witch-holding-a-plant-in-one-hand-and-a-fan-in-the-other.jpg
 imagePosition: "object-[50%_25%]"
-headerGradient:
-  light: "from-emerald-50 to-blue-50"
-  dark: "dark:from-blue-950 dark:to-blue-800"
 publishedDate: 2026-05-05
 ---
 

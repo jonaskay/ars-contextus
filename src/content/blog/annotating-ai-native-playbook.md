@@ -4,9 +4,6 @@ description: "A critical look at Anthropic’s AI-Native SDLC Playbook: what wor
 type: post
 image: ../images/signs-of-the-zodiac-pegasus.jpg
 imagePosition: "object-[50%_100%]"
-headerGradient:
-  light: "from-rose-200 to-neutral-200"
-  dark: "dark:from-rose-900 dark:to-rose-950"
 publishedDate: 2026-09-03
 ---
 
