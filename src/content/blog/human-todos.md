@@ -116,7 +116,8 @@ description: Mark resolved HUMAN_TODOs in docs/plan.md after human review
 
 Read `docs/plan.md`. Ask the human which HUMAN_TODO items have been addressed if it isn't already clear from context.
 
-For each confirmed-resolved item, remove its `**HUMAN_TODO:**` marker, keeping the underlying step description intact. Leave any unconfirmed HUMAN_TODOs untouched.
+For each confirmed-resolved item, remove its `**HUMAN_TODO:**` marker, keeping the underlying step description intact.
+Leave any unconfirmed HUMAN_TODOs untouched.
 ```
 
 Finally, send the agent off to work:
