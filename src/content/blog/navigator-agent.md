@@ -16,9 +16,9 @@ The idea is simple: Assume a pair programming setup with a driver and a navigato
 
 Why does this work?
 
-- Every now and then, we get tired and just want someone to tell us what to do. If your coding agent is able to implement changes to your codebase effortlessly, it’s also capable of instructing you, the human, on how to implement those changes.
 - Sometimes we are implementing foundational or critical logic that we want to understand fully. When you write the code yourself, you end up developing this understanding automatically.
 - Pair programming sessions with senior developers usually end with you learning a trick or two about a language you thought you already knew everything about. Coding agents hold more information in their heads than even the most experienced developer at your company.
+- Every now and then, we get tired and just want someone to tell us what to do. If your coding agent is able to implement changes to your codebase effortlessly, it’s also capable of instructing you, the human, on how to implement those changes.
 
 **But most importantly, this pattern pushes you not to outsource your learning to agents.**
 
