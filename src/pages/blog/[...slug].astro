@@ -63,23 +63,23 @@ const itemType = post.data.type === "pattern" ? "pattern" : "post";
   <main class="border-b border-neutral-200 dark:border-neutral-700">
     <div class="container mx-auto px-4 sm:px-8 py-8">
       <article
-        class="prose md:prose-lg dark:prose-invert mx-auto mb-16 md:mb-24 text-wrap wrap-break-word"
+        class="prose md:prose-lg dark:prose-invert mx-auto text-wrap wrap-break-word"
       >
         <Content />
       </article>
       <div
-        class="prose prose-headings:mt-0 md:prose-lg dark:prose-invert mx-auto mb-16"
+        class="prose prose-headings:mt-0 prose-hr:mb-6 md:prose-lg dark:prose-invert mx-auto"
       >
         <nav aria-label={`${itemType} navigation`}>
           {
             nextPost && (
-                <hr class="border-t border-neutral-200 dark:border-neutral-400" />
+                <hr class="border-t border-neutral-400 dark:border-neutral-500" />
                 <a
                   href={`/blog/${nextPost.id}/`}
                   rel="next"
                   class="block no-underline hover:underline"
                 >
-                  <span class="text-neutral-200 uppercase tracking-wider">
+                  <span class="text-neutral-600 dark:text-neutral-200 text-base uppercase tracking-wider">
                     Next {itemType}
                   </span>
                   <h3 class="mt-0">{nextPost.data.title}</h3>
@@ -89,13 +89,13 @@ const itemType = post.data.type === "pattern" ? "pattern" : "post";
           }
           {
             previousPost && (
-              <hr class="border-t border-neutral-200 dark:border-neutral-400" />
+              <hr class="border-t border-neutral-400 dark:border-neutral-500" />
               <a
                 href={`/blog/${previousPost.id}/`}
                 rel="prev"
                 class="block no-underline hover:underline"
               >
-                <div class="text-neutral-200 uppercase tracking-wider">
+                <div class="text-neutral-600 dark:text-neutral-200 text-base uppercase tracking-wider">
                   Previous {itemType}
                 </div>
                 <h3 class="mt-0">{previousPost.data.title}</h3>
