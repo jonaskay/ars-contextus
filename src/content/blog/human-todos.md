@@ -130,7 +130,8 @@ description: Implement a plan from docs/plan.md, enforcing unresolved HUMAN_TODO
 
 Read `docs/plan.md`.
 
-Scan the plan for any unresolved `**HUMAN_TODO:**` markers before implementing anything. If any are found, stop immediately without implementing any part of the plan, and list the unresolved items so the human can address them.
+Scan the plan for any unresolved `**HUMAN_TODO:**` markers before implementing anything. 
+If any are found, stop immediately without implementing any part of the plan, and list the unresolved items so the human can address them.
 
 If there are no unresolved HUMAN_TODOs, implement the plan step by step.
 ```
