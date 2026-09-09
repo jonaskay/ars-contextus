@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+.prose :where(a[data-footnote-backref], a.footnote-backref) {
+  text-decoration: none;
+}
