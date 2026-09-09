@@ -91,7 +91,7 @@ But obviously, we want to go deeper.
 Building the “software factory” that does the work for you is the next goal. To learn more about the concept, see: [Software Factories, Light and Dark
 ](https://addyosmani.com/blog/software-factories/).
 
-But to paraphrase the great game designer Reiner Knizia, it is the goal that is important, not the factory. The purpose of this exercise is to learn, not to force the software factory pattern onto organizations and domains where it just doesn’t work.
+But to paraphrase the great game designer Reiner Knizia, it is the goal that is important, not the factory[^1]. The purpose of this exercise is to learn, not to force the software factory pattern onto organizations and domains where it just doesn’t work.
 
 Your current coding tasks contain simple tasks that you could give directly to your coding agent without touching any of the code yourself. The size of this pool of automatable tasks depends on your codebase. If you cannot get a single task completed with agents, the problem might be with your codebase (or between the keyboard and chair).
 
@@ -174,3 +174,5 @@ The latest prompting hacks you can find on Reddit or X, on the other hand, are o
 
 When it comes to video, I enjoy watching the more [geeky AI Engineer](https://www.youtube.com/@aiDotEngineer) talks, such as: [
 Don't Ship Skills Without Evals — Philipp Schmid, Google DeepMind](https://www.youtube.com/watch?v=0vphxNt4wyk)
+
+[^1]: “When playing a game, the goal is to win, but it is the goal that is important, not the winning.” — Reiner Knizia
