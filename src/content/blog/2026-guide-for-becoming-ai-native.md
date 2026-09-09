@@ -31,7 +31,7 @@ I’m assuming you have some basic idea of how LLMs work: they receive inputs as
 
 I have found it helpful to know the basics of how LLMs are built because this has helped me understand what types of considerations and decisions labs are already making on my behalf and where I shouldn’t try to be more clever than the people making these models. Whenever I see someone creating skills to make LLMs “think better,” I wonder if they would delete those skills if they only saw what goes into post-training.
 
-This clip from an episode of the Lex Fridman Podcast has two researchers explaining the process of LLM training: https://www.youtube.com/watch?v=MJxwtLtNyF8
+This clip from an episode of the Lex Fridman Podcast has two researchers explaining the process of LLM training: [How AI is trained: Pre-training, mid-training, and post-training explained | Lex Fridman Podcast](https://www.youtube.com/watch?v=MJxwtLtNyF8)
 
 In addition, [Computerphile](https://www.youtube.com/user/Computerphile) contains lots of cool videos about the topic.
 
@@ -39,13 +39,13 @@ In addition, [Computerphile](https://www.youtube.com/user/Computerphile) contain
 
 Everyone knows that you should give relevant context to coding agents. But these two issues with large and noisy contexts are often missed.
 
-### 1. Effective context window < Theoretical context window
+### I. Effective context window < Theoretical context window
 
 The context window is the limit within which your input and output tokens MUST fit. That is the hard boundary you have to work with.
 
 The longer your context is, the worse the model becomes at retrieving the right information and reasoning about it. After some point, things start to really degrade. That is the effective context window.
 
-### 2. Attention is zero-sum
+### II. Attention is zero-sum
 
 An LLM needs to decide which tokens matter most among its input tokens. Every irrelevant or random fact reduces the weight the model can assign to more important details.
 
@@ -57,11 +57,11 @@ Learning how to manage your context is a critical skill when working with coding
 
 Too many people are trying to solve the shortcomings of coding agents by giving them even more context. These fundamentals about context windows will help you understand on a deeper level why, most of the time, the answer is not *more* context but *less noisy* context.
 
-A great place to get started with understanding why you want to be frugal with your context is Chroma’s technical report on context rot: https://www.trychroma.com/research/context-rot.
+A great place to get started with understanding why you want to be frugal with your context is Chroma’s technical report on context rot: [Context Rot: How Increasing Input Tokens Impacts LLM Performance](https://www.trychroma.com/research/context-rot).
 
 ## Instructions, skills, subagents
 
-I have found Claude Code’s Best Practices page to be the best source for describing how you should use coding agents and their wide variety of features: https://code.claude.com/docs/en/best-practices
+I have found Claude Code’s Best Practices page to be the best source for describing how you should use coding agents and their wide variety of features: [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices)
 
 It covers tons of ground and provides easy-to-understand examples. I would use that as my manual for relearning the operating principles of my coding agent even if I wasn’t using Claude Code. I’d just figure out how everything ports to my coding agent.
 
@@ -69,7 +69,8 @@ If you have used only one coding agent, and it’s one of the popular ones, I ca
 
 ## Harness engineering
 
-To start your journey into harness engineering, I’d suggest reading the post that coined the term: https://mitchellh.com/writing/my-ai-adoption-journey
+To start your journey into harness engineering, I’d suggest reading the post that coined the term: [My AI Adoption Journey
+](https://mitchellh.com/writing/my-ai-adoption-journey)
 
 In addition to the affirmation you might need for your learning journey, the post provides two key tips once you understand pretty well what your coding agent can do at the feature level:
 
@@ -78,7 +79,8 @@ In addition to the affirmation you might need for your learning journey, the pos
 
 The first point will help you start thinking about agents as background workers. I did it for a week, and it really opened my mind to the opportunities of async agents. I understand that this is also where the available tools can become a limitation for you.
 
-The second point is the core idea of harness engineering. To dive deeper into the scope of harness engineering, read OpenAI’s case study, which contains a lot of pointers about the relevant dimensions (more about this later): https://openai.com/index/harness-engineering/
+The second point is the core idea of harness engineering. To dive deeper into the scope of harness engineering, read OpenAI’s case study, which contains a lot of pointers about the relevant dimensions (more about this later): [Harness engineering: leveraging Codex in an agent-first world
+](https://openai.com/index/harness-engineering/)
 
 ## Software factories
 
@@ -86,7 +88,8 @@ Getting your coding agent to complete tasks for you as you prompt it is the leve
 
 But obviously, we want to go deeper.
 
-Building the “software factory” that does the work for you is the next goal. To learn more about the concept, see: https://addyosmani.com/blog/software-factories/.
+Building the “software factory” that does the work for you is the next goal. To learn more about the concept, see: [Software Factories, Light and Dark
+](https://addyosmani.com/blog/software-factories/).
 
 But to paraphrase the great game designer Reiner Knizia, it is the goal that is important, not the factory. The purpose of this exercise is to learn, not to force the software factory pattern onto organizations and domains where it just doesn’t work.
 
@@ -108,9 +111,10 @@ The integrations and connections to different APIs are also the uninteresting pa
 
 These are things that you need to take into consideration locally as you get ready for your personal software factory:
 
-- Git worktrees will make it easy to prevent you and your other agents from stepping on each other’s toes. This video from Brian Casel will get you up to speed with the technique: https://www.youtube.com/watch?v=Bz5fyyCa2-0
+- Git worktrees will make it easy to prevent you and your other agents from stepping on each other’s toes. This video from Brian Casel will get you up to speed with the technique: [Claude Code Multitasking Made EASY
+](https://www.youtube.com/watch?v=Bz5fyyCa2-0)
 - Install a coding agent that you can run in a “headless” mode from the terminal so that you can create scripts for agent invocations. Get comfortable hooking different agents together using Bash scripts (one agent returns success, then another agent starts working, etc.). If you don’t have access to such an agent due to, for example, a security policy, congratulations: you are the Bash script.
-- Software factory loops require you to run agents that don’t have to ask for permissions. Because of this, you should learn about the concept of the lethal trifecta (https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/). After that, look into the sandboxing solutions that are available to you and whether you and your team can accept the risks of those solutions.
+- Software factory loops require you to run agents that don’t have to ask for permissions. Because of this, you should learn about the concept of [the lethal trifecta](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/). After that, look into the sandboxing solutions that are available to you and whether you and your team can accept the risks of those solutions.
 
 ### Process for building a factory
 
@@ -121,7 +125,7 @@ Start building the factory step by step:
 3. If the plan doesn’t work, start improving your feedback loops and adding evaluation steps (more about this later). Keep iterating until you get the PR you need.
 4. Pick the next task and repeat the process.
 
-[OpenAI’s harness engineering case study](https://openai.com/index/harness-engineering/) has been an extremely helpful compass for me when moving through those steps. Keep one eye on your codebase and the other on the case study. You will realize that it’s a much better map than it seems at first blush.
+The [OpenAI’s harness engineering case study](https://openai.com/index/harness-engineering/) mentioned above has been an extremely helpful compass for me when moving through those steps. Keep one eye on your codebase and the other on the case study. You will realize that it’s a much better map than it seems at first blush.
 
 These are the points I urge you to pay special attention to:
 
@@ -140,13 +144,14 @@ But the less time you end up spending inside the code, the harder it will be for
 
 Feedback loops are a critical part of enabling an agent running in a loop to verify its work. A skill that tells the agent to put the teardown phase of a test file after the setup phase is not a feedback loop. A linter rule that forces that behavior is a feedback loop.
 
-If you think feedback loops are limited to linters and automated tests, see Simon Willison’s Showboat for inspiration: https://simonwillison.net/2026/Feb/10/showboat-and-rodney/
+If you think feedback loops are limited to linters and automated tests, see Simon Willison’s Showboat for inspiration: [Introducing Showboat and Rodney, so agents can demo what they’ve built](https://simonwillison.net/2026/Feb/10/showboat-and-rodney/)
 
 #### Evaluator agents
 
 Evaluators are agents that evaluate the implementations of other agents. They will remove you as the first evaluator, which will end up saving you time.
 
-This article from Anthropic will explain the concept in more depth: https://www.anthropic.com/engineering/harness-design-long-running-apps
+This article from Anthropic will explain the concept in more depth: [Harness design for long-running application development
+](https://www.anthropic.com/engineering/harness-design-long-running-apps)
 
 #### Validation at scale
 
@@ -161,9 +166,11 @@ This is where my advice ends. But maybe when you’ve completed everything above
 
 If you are wondering how to keep up to date with everything, I have found articles from OpenAI and Anthropic to be extremely well written and to always contain at least some true gems:
 
-- Anthropic: https://www.anthropic.com/engineering
-- OpenAI: https://openai.com/news/engineering/
+- Anthropic: [Engineering at Anthropic: Inside the team building reliable AI systems
+](https://www.anthropic.com/engineering)
+- OpenAI: [Stories about the technology and builders at OpenAI](https://openai.com/news/engineering/)
 
 The latest prompting hacks you can find on Reddit or X, on the other hand, are often fool’s gold that takes time and attention away from your daily experimentation budget.
 
-When it comes to video, I enjoy watching the more [geeky AI Engineer](https://www.youtube.com/@aiDotEngineer) talks, such as https://www.youtube.com/watch?v=0vphxNt4wyk
+When it comes to video, I enjoy watching the more [geeky AI Engineer](https://www.youtube.com/@aiDotEngineer) talks, such as: [
+Don't Ship Skills Without Evals — Philipp Schmid, Google DeepMind](https://www.youtube.com/watch?v=0vphxNt4wyk)
