@@ -16,6 +16,11 @@ export async function GET(context: APIContext) {
 
       return postDate > latestDate ? postDate : latestDate;
     }, posts[0]?.data.updatedDate ?? posts[0]?.data.publishedDate) ?? new Date();
+  const channelMetadata = [
+    `<atom:link href="${new URL("/rss.xml", context.site).href}" rel="self" type="application/rss+xml" />`,
+    "<language>en-us</language>",
+    `<lastBuildDate>${lastBuildDate.toUTCString()}</lastBuildDate>`,
+  ].join("");
 
   return rss({
     title: "Ars Contextus",
@@ -24,10 +29,7 @@ export async function GET(context: APIContext) {
     xmlns: {
       atom: "http://www.w3.org/2005/Atom",
     },
-    customData:
-      `<atom:link href="${new URL("/rss.xml", context.site).href}" rel="self" type="application/rss+xml" />` +
-      "<language>en-us</language>" +
-      `<lastBuildDate>${lastBuildDate.toUTCString()}</lastBuildDate>`,
+    customData: channelMetadata,
     items: posts
       .map((post) => ({
         title: post.data.title,
