@@ -10,12 +10,11 @@ export async function GET(context: APIContext) {
   const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
   );
-  const lastBuildDate =
-    posts.reduce((latestDate, post) => {
-      const postDate = post.data.updatedDate ?? post.data.publishedDate;
+  const lastBuildDate = posts.reduce((latestDate, post) => {
+    const postDate = post.data.updatedDate ?? post.data.publishedDate;
 
-      return postDate > latestDate ? postDate : latestDate;
-    }, posts[0]?.data.updatedDate ?? posts[0]?.data.publishedDate) ?? new Date();
+    return postDate > latestDate ? postDate : latestDate;
+  }, new Date(0));
   const channelMetadata = [
     `<atom:link href="${new URL("/rss.xml", context.site).href}" rel="self" type="application/rss+xml" />`,
     "<language>en-us</language>",
